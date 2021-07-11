@@ -1,12 +1,14 @@
 .nav {
     grid-area: n;
     background: mediumpurple;
+    padding: 30px;
 }
 
-.item {
+.item a{
     color: ivory;
+    text-decoration: none;
 }
 
-.item.active {
+.item a.active {
     color: violet;
 }

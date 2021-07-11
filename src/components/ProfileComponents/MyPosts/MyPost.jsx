@@ -9,8 +9,8 @@ function MyPosts() {
             <button>Add Post</button>
             <button>Post Remove</button>
             <div className={classes.posts}>
-                <Post message='It is my first post' />
-                <Post message='How are you?' />
+                <Post message='It is my first post' likesCount='0' />
+                <Post message='How are you?' likesCount='22' />
             </div>
         </div>
     );
