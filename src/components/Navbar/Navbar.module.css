@@ -4,7 +4,8 @@
     padding: 30px;
 }
 
-.item a{
+.item a {
+    font-size: 24px;
     color: ivory;
     text-decoration: none;
 }

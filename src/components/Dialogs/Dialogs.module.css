@@ -3,11 +3,17 @@
     grid-template-columns: 2fr 10fr;
 }
 
-.dialogs-items .dialog {
-    padding: 10px;
+.dialogItems {
+    padding: 15px;
 }
 
-.dialog-items .active {
+.dialog a {
+    font-size: 18px;
+    color: ivory;
+    text-decoration: none;
+}
+
+.dialog a.active {
     color: violet;
 }
 

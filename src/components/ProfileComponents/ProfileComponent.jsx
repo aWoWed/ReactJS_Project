@@ -1,15 +1,11 @@
 import classes from './ProfileComponent.module.css';
 import MyPosts from "./MyPosts/MyPost";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 function ProfileComponent() {
     return (
         <div className={classes.content}>
-            <div>
-            <img className={classes.content__img} src='https://wallpaperaccess.com/full/1198688.jpg'/>
-            </div>
-            <div>
-                ava + description
-            </div>
+            <ProfileInfo/>
             <MyPosts/>
         </div>
     );
