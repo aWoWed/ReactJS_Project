@@ -42,4 +42,11 @@ export let addPost = (postMessage) => {
     state.profilesPage.posts.push(newPost);
 }
 
+export let addMessage = (dialogMessage) => {
+    let newMessage = {
+      id: 4,
+      message: dialogMessage,
+    };
+}
+
 export default state;

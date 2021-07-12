@@ -6,10 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import state from "./redux/state";
 import {BrowserRouter} from 'react-router-dom'
 import {addPost} from "./redux/state";
+import {addMessage} from "./redux/state";
 
 ReactDOM.render(
   <BrowserRouter>
-    <App state={ state } addPost={ addPost } />
+    <App state={ state } addPost={ addPost } addMessage={ addMessage } />
   </BrowserRouter>, document.getElementById('root')
 );
 
