@@ -20,6 +20,13 @@ let state = {
             {id: 3, message: 'Man'},
         ],
     },
+    sidebar: {
+        friends: [
+            {id: 1, message: 'Andrew'},
+            {id: 2, message: 'Max'},
+            {id: 3, message: 'Ilya'},
+        ],
+    },
     /*newsPage: {[{}],},
     musicPage: {[{}],},
     settingsPage: {[{}],},*/
