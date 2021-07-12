@@ -6,7 +6,7 @@ function ProfileComponent(props) {
     return (
         <div className={classes.content}>
             <ProfileInfo/>
-            <MyPosts state={props.state}/>
+            <MyPosts state={props.state} addPost={props.addPost}/>
         </div>
     );
 }

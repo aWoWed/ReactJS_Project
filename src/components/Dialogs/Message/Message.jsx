@@ -2,7 +2,10 @@ import classes from "./Message.module.css";
 
 function Message(props) {
     return (
-        <div>{props.message}</div>
+        <div>
+            {props.message}
+        </div>
+
     );
 }
 
