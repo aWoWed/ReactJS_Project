@@ -1,0 +1,9 @@
+.dialog a {
+    font-size: 18px;
+    color: ivory;
+    text-decoration: none;
+}
+
+.dialog a.active {
+    color: violet;
+}
