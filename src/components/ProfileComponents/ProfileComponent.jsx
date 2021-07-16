@@ -6,7 +6,10 @@ function ProfileComponent(props) {
     return (
         <div className={classes.content}>
             <ProfileInfo/>
-            <MyPosts state={props.state} addPost={props.addPost}/>
+            <MyPosts posts={ props.profilesPage.posts }
+                     newPostText={ props.profilesPage.newPostText }
+                     updateNewPostText={ props.updateNewPostText }
+                     addPost={ props.addPost }/>
         </div>
     );
 }
