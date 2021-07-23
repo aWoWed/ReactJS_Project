@@ -1,6 +1,7 @@
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const ADD_MESSAGE = 'ADD-MESSAGE'
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
 
 let storage = {
     _state: {
@@ -9,7 +10,7 @@ let storage = {
                 {id: 1, message: 'It is my first post', likesCount: 0},
                 {id: 2, message: 'How are you?', likesCount: 22},
             ],
-            newPostText: 'text',
+            newPostText: '',
         },
         messagesPage: {
             dialogs: [
@@ -25,6 +26,7 @@ let storage = {
                 {id: 2, message: 'Hello'},
                 {id: 3, message: 'Man'},
             ],
+            newMessageText: '',
         },
         sidebar: {
             friends: [
@@ -63,36 +65,39 @@ let storage = {
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilesPage.newPostText = action.newText
             this._callSubscriber(this._state)
-        } else if (action.type === 'ADD-MESSAGE') {
+        } else if (action.type === ADD_MESSAGE) {
             let newMessage = {
                 id: 4,
-                message: action.dialogMessage,
+                message: this._state.messagesPage.newMessageText,
             }
 
             this._state.messagesPage.messages.push(newMessage)
+            this._state.messagesPage.newMessageText = ''
+            this._callSubscriber(this._state)
+        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+            this._state.messagesPage.newMessageText = action.dialogMessage
             this._callSubscriber(this._state)
         }
     },
 }
 
-export const addPostActionCreator = () => {
-    return {
-        type: ADD_POST
-    }
-}
+export const addPostCreator = () => ({
+    type: ADD_POST
+})
 
-export const updateNewPostTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_POST_TEXT,
-        newText: text
-    }
-}
 
-export const addMessageActionCreator = (text) => {
-    return {
-        type: ADD_MESSAGE,
-        newText: text
-    }
-}
+export const updateNewPostTextCreator = (text) => ({
+    type: UPDATE_NEW_POST_TEXT,
+    newText: text
+})
+
+export const addMessageCreator = () => ({
+    type: ADD_MESSAGE
+})
+
+export const updateNewMessageTextCreator = (text) => ({
+    type: UPDATE_NEW_MESSAGE_TEXT,
+    dialogMessage: text
+})
 
 export default storage;
