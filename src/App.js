@@ -15,13 +15,12 @@ function App(props) {
             <Navbar/>
             <div className='app-wrapper-content'>
                 <Route path='/profileComponents' render={() => <ProfileComponent profilesPage={props.state.profilesPage}
-                                                                                 addPost={props.addPost}
-                                                                                 updateNewPostText={props.updateNewPostText}/>}/>
+                                                                                 dispatch={props.dispatch}/>}/>
                 <Route path='/dialogs'
-                       render={() => <Dialogs state={props.state.messagesPage} addMessage={props.addMessage}/>}/>
-                <Route path='/news' render={() => <News news={props.news}/>}/>
-                <Route path='/music' render={() => <Music music={props.music}/>}/>
-                <Route path='/settings' render={() => <Settings settings={props.settings}/>}/>
+                       render={() => <Dialogs state={props.state.messagesPage} dispatch={props.dispatch}/>}/>
+                <Route path='/news' render={() => <News news={props.news} dispatch={props.dispatch}/>}/>
+                <Route path='/music' render={() => <Music music={props.music} dispatch={props.dispatch}/>}/>
+                <Route path='/settings' render={() => <Settings settings={props.settings} dispatch={props.dispatch}/>}/>
             </div>
         </div>
     );

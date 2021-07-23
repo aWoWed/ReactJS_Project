@@ -1,4 +1,4 @@
-import classes from "./Message.module.css";
+import classes from "./Message.module.css"
 
 function Message(props) {
     return (
@@ -6,7 +6,7 @@ function Message(props) {
             {props.message}
         </div>
 
-    );
+    )
 }
 
-export default Message;
+export default Message

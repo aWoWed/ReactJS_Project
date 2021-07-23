@@ -7,7 +7,7 @@ let storage = {
             ],
             newPostText: 'text',
         },
-        messagesPage:{
+        messagesPage: {
             dialogs: [
                 {id: 1, name: 'Ilya'},
                 {id: 2, name: 'Dima'},
@@ -34,44 +34,41 @@ let storage = {
         settingsPage: {[{}],},*/
     },
 
-    get state() {
-        return this._state
-    },
-
     _callSubscriber() {
         console.log('State was changed')
     },
 
-    addPost() {
-        let newPost = {
-            id: 3,
-            message: this._state.profilesPage.newPostText,
-            likesCount: 19,
-        };
-
-        this._state.profilesPage.posts.push(newPost);
-        this._state.profilesPage.newPostText = '';
-        this._callSubscriber(this._state);
-    },
-
-    updateNewPostText(newPostText) {
-        this._state.profilesPage.newPostText = newPostText;
-        this._callSubscriber(this._state);
-    },
-
-    addMessage(dialogMessage) {
-        let newMessage = {
-            id: 4,
-            message: dialogMessage,
-        };
-
-        this._state.messagesPage.messages.push(newMessage);
-        this._callSubscriber(this._state);
+    get state() {
+        return this._state
     },
 
     subscribe(observer) {
         this._callSubscriber = observer
-    }
+    },
+
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 3,
+                message: this._state.profilesPage.newPostText,
+                likesCount: 19,
+            }
+            this._state.profilesPage.posts.push(newPost)
+            this._state.profilesPage.newPostText = ''
+            this._callSubscriber(this._state)
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilesPage.newPostText = action.newText
+            this._callSubscriber(this._state)
+        } else if (action.type === 'ADD-MESSAGE') {
+            let newMessage = {
+                id: 4,
+                message: action.dialogMessage,
+            }
+
+            this._state.messagesPage.messages.push(newMessage)
+            this._callSubscriber(this._state)
+        }
+    },
 }
 
 export default storage;
