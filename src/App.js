@@ -2,7 +2,6 @@ import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import ProfileComponent from "./components/ProfileComponents/ProfileComponent";
-import Dialogs from "./components/Dialogs/Dialogs";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -15,7 +14,7 @@ function App(props) {
             <Header/>
             <Navbar/>
             <div className='app-wrapper-content'>
-                <Route path='/profileComponents' render={() => <ProfileComponent store={props.store}/>}/>
+                <Route path='/profileComponents' render={() => <ProfileComponent />}/>
                 <Route path='/dialogs'
                        render={() => <DialogsContainer store={props.store}/>}/>
                 <Route path='/news' render={() => <News news={props.news} dispatch={props.dispatch}/>}/>
