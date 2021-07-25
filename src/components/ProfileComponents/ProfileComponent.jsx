@@ -1,16 +1,14 @@
-import classes from './ProfileComponent.module.css';
-import MyPosts from "./MyPosts/MyPost";
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import classes from './ProfileComponent.module.css'
+import ProfileInfo from './ProfileInfo/ProfileInfo'
+import MyPostsContainer from './MyPosts/MyPostsContainer'
 
 function ProfileComponent(props) {
     return (
         <div className={classes.content}>
             <ProfileInfo/>
-            <MyPosts posts={ props.profilesPage.posts }
-                     newPostText={ props.profilesPage.newPostText }
-                     dispatch={props.dispatch}/>
+            <MyPostsContainer store={props.store}/>
         </div>
-    );
+    )
 }
 
-export default ProfileComponent;
+export default ProfileComponent

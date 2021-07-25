@@ -1,26 +1,23 @@
 import React from 'react'
 import classes from './Dialogs.module.css'
-import Dialog from "./DialogItem/DialogItem"
-import Message from "./Message/Message"
-import {
-    addMessageCreator,
-    updateNewMessageTextCreator,
-} from "../../redux/dialogs-reducer";
+import Dialog from './DialogItem/DialogItem'
+import Message from './Message/Message'
 
 function Dialogs(props) {
-    let dialogsItems = props.state.dialogs.map(dialog => <Dialog id={dialog.id} name={dialog.name}/>)
-    let messagesItems = props.state.messages.map(message => <Message id={message.id} message={message.message}/>)
+    let state = props.messagesPage
+
+    let dialogsItems = state.dialogs.map(dialog => <Dialog id={dialog.id} name={dialog.name}/>)
+    let messagesItems = state.messages.map(message => <Message id={message.id} message={message.message}/>)
 
     let newMessage = React.createRef()
 
     let addMessage = () => {
-        props.dispatch(addMessageCreator())
+        props.addMessage()
     }
 
     let onMessageChange = () => {
         let text = newMessage.current.value
-        let action = updateNewMessageTextCreator(text)
-        props.dispatch(action)
+        props.updateNewMessageText(text)
     }
 
     return (
