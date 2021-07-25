@@ -2,7 +2,7 @@ import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
 
-let storage = {
+let store = {
     _state: {
         profilesPage: {
             posts: [
@@ -60,4 +60,4 @@ let storage = {
     },
 }
 
-export default storage;
+export default store;
